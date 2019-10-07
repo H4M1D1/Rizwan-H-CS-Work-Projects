@@ -1,20 +1,20 @@
 function guess_number(){
-  var secret = 22;
+  var secret = 12;
   var guess;
   while(guess != secret){ 
-    guess = prompt("Guess a number between 1 and 100");
+    guess = prompt("Guess my favourite number, right now!");
    
     if(guess == secret){
-       alert("Conadhfljsdt");
+       alert("Stop Cheating!!! >:(");
     }
     else if(guess < secret){
-        alert("guess higher");        
+        alert("Come on, higher of course!");        
     }
     else if(guess > secret){
-      alert("guess lower");
+      alert("It's lower than that!");
     }
     else{
-      alert("that's not a number");
+      alert("That's not a number silly!");
     }
   }
 }
