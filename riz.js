@@ -27,7 +27,7 @@ var z =(y + 1)
 }
 
 function assignment(){
-  var secret = "Sarah";
+  var secret = "sarah";
   var guess;
   while(guess != secret){
     guess = prompt("What is your first name?");
