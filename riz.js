@@ -49,3 +49,19 @@ var x = prompt("My website will tell you the value of an angle if you provide it
 var y = prompt("Enter the second angle... ");
       alert(180 - x - y + " " + "degrees is the last angle of that triangle!");
 }
+
+function integer(){
+  var x = 0 
+  while (x <= 99){
+    x = x + 1;
+      if(x % 4 == 0 && x % 10 == 0){
+          console.log("fourten");
+        }else if( x % 10 == 0){
+          console.log("ten");
+        }else if(x % 4 == 0){
+         console.log("four");
+        }else{
+          console.log(x);
+      }
+    }
+  }
