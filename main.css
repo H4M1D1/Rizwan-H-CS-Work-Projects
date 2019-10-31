@@ -123,5 +123,11 @@ transition: all 0.3s ease 0s;
 	width: 220px;
 	height: 420px;
 	background-colour: #404040;
+	margin: 0 auto;
+	top: 20;
+	position: relative;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0.19);
+	
 }
 		
