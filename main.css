@@ -118,3 +118,10 @@ background: none;
 transition: all 0.3s ease 0s;
 	cursor: pointer;
 }
+
+.calculator{
+	width: 220px;
+	height: 420px;
+	background-colour: #404040;
+}
+		
