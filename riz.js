@@ -50,81 +50,108 @@ var y = prompt("Enter the second angle... ");
       alert(180 - x - y + " " + "degrees is the last angle of that triangle!");
 }
 
-function getHistory(){
-  return document.getElementById("history-value").innerText;
-}
-function printHistory(num){
-  document.getElementById("history-value").innerText=num;
-}
-function getOutput(){
-  return document.getElementById("output-value").innerText;
-}
-function printOutput(num){
-  if(num==""){
-    document.getElementById("output-value").innerText=num;
+const calculator = {
+  displayValue: '0',
+  firstOperand: null,
+  waitingForSecondOperand: false,
+  operator: null,
+};
+
+function inputDigit(digit) {
+  const { displayValue, waitingForSecondOperand } = calculator;
+
+  if (waitingForSecondOperand === true) {
+    calculator.displayValue = digit;
+    calculator.waitingForSecondOperand = false;
+  } else {
+    calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
   }
-  else{
-    document.getElementById("output-value").innerText=getFormattedNumber(num);
-  } 
 }
-function getFormattedNumber(num){
-  if(num=="-"){
-    return "";
+
+function inputDecimal(dot) {
+  if (calculator.waitingForSecondOperand === true) return;
+  
+  // If the `displayValue` does not contain a decimal point
+  if (!calculator.displayValue.includes(dot)) {
+    // Append the decimal point
+    calculator.displayValue += dot;
   }
-  var n = Number(num);
-  var value = n.toLocaleString("en");
-  return value;
 }
-function reverseNumberFormat(num){
-  return Number(num.replace(/,/g,''));
+
+function handleOperator(nextOperator) {
+  const { firstOperand, displayValue, operator } = calculator
+  const inputValue = parseFloat(displayValue);
+
+  if (operator && calculator.waitingForSecondOperand)  {
+    calculator.operator = nextOperator;
+    return;
+  }
+
+  if (firstOperand == null) {
+    calculator.firstOperand = inputValue;
+  } else if (operator) {
+    const currentValue = firstOperand || 0;
+    const result = performCalculation[operator](currentValue, inputValue);
+
+    calculator.displayValue = String(result);
+    calculator.firstOperand = result;
+  }
+
+  calculator.waitingForSecondOperand = true;
+  calculator.operator = nextOperator;
 }
-var operator = document.getElementsByClassName("operator");
-for(var i =0;i<operator.length;i++){
-  operator[i].addEventListener('click',function(){
-    if(this.id=="clear"){
-      printHistory("");
-      printOutput("");
-    }
-    else if(this.id=="backspace"){
-      var output=reverseNumberFormat(getOutput()).toString();
-      if(output){//if output has a value
-        output= output.substr(0,output.length-1);
-        printOutput(output);
-      }
-    }
-    else{
-      var output=getOutput();
-      var history=getHistory();
-      if(output==""&&history!=""){
-        if(isNaN(history[history.length-1])){
-          history= history.substr(0,history.length-1);
-        }
-      }
-      if(output!="" || history!=""){
-        output= output==""?output:reverseNumberFormat(output);
-        history=history+output;
-        if(this.id=="="){
-          var result=eval(history);
-          printOutput(result);
-          printHistory("");
-        }
-        else{
-          history=history+this.id;
-          printHistory(history);
-          printOutput("");
-        }
-      }
-    }
-    
-  });
+
+const performCalculation = {
+  '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
+
+  '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
+
+  '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
+
+  '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
+
+  '=': (firstOperand, secondOperand) => secondOperand
+};
+
+function resetCalculator() {
+  calculator.displayValue = '0';
+  calculator.firstOperand = null;
+  calculator.waitingForSecondOperand = false;
+  calculator.operator = null;
 }
-var number = document.getElementsByClassName("number");
-for(var i =0;i<number.length;i++){
-  number[i].addEventListener('click',function(){
-    var output=reverseNumberFormat(getOutput());
-    if(output!=NaN){ //if output is a number
-      output=output+this.id;
-      printOutput(output);
-    }
-  });
+
+function updateDisplay() {
+  const display = document.querySelector('.calculator-screen');
+  display.value = calculator.displayValue;
 }
+
+updateDisplay();
+
+const keys = document.querySelector('.calculator-keys');
+keys.addEventListener('click', (event) => {
+  const { target } = event;
+  if (!target.matches('button')) {
+    return;
+  }
+
+  if (target.classList.contains('operator')) {
+    handleOperator(target.value);
+    updateDisplay();
+    return;
+  }
+
+  if (target.classList.contains('decimal')) {
+    inputDecimal(target.value);
+    updateDisplay();
+    return;
+  }
+
+  if (target.classList.contains('all-clear')) {
+    resetCalculator();
+    updateDisplay();
+    return;
+  }
+
+  inputDigit(target.value);
+  updateDisplay();
+});
