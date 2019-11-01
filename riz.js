@@ -66,5 +66,5 @@ function calc(){
     calculate = a * b;
   }
 
-  document.querySelector("#result").innerHTML = calculate
+  console.log(calculate);
 }
