@@ -37,7 +37,7 @@ transition: all 0.3s ease 0s;
 
 
 .ag:hover{
-	color: #404040 !important;
+color: #404040 !important;
 font-weight: 700 !important;
 letter-spacing: 3px;
 background: none;
