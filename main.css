@@ -163,5 +163,46 @@ transition: all 0.3s ease 0s;
 	border-width: 0;
 	font-weight: bold;
 	font-size: 15px;
+}
+
+.number, .empty{
 	background-colour: #404040;
+}
+
+.number, .operator{
+	cursor: pointer;
+}
+
+.operator:active, .number:active{
+	font-size: 13px;
+}
+
+.operator:focus, .nunber:focus, .empty:focus{
+	outline: 0;
+
+}
+
+button:nth-child(4){
+	font-size: 20px;
+	background-color: #696969;
+}
+
+button:nth-child(8){
+	font-size: 20px;
+	background-color: #696969;
+}
+
+button:nth-child(12){
+	font-size: 20px;
+	background-color: #696969;
+}
+
+button:nth-child(16){
+	font-size: 20px;
+	background-color: #696969;
+}
+
+button:nth-child(20){
+	font-size: 20px;
+	background-color: #696969;
 }
