@@ -166,7 +166,7 @@ transition: all 0.3s ease 0s;
 }
 
 .number, .empty{
-	background-colour: #404040;
+	background-colour: #A9A9A9;
 }
 
 .number, .operator{
