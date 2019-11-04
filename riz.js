@@ -50,3 +50,20 @@ var y = prompt("Enter the second angle... ");
       alert(180 - x - y + " " + "degrees is the last angle of that triangle!");
 }
 
+function integer(){
+  var x = 0;
+  while (x <= 99){
+    x = x + 1;
+    if(x % 4 == 0 && x % 10 == 0){
+      console.log("FourTen");
+    }else if(x % 10 == 0){
+      console.log("Ten");
+    }else if(x % 4 == 0){
+      console.log("Four");
+    }else{
+      console.log(x);
+    }
+  }
+}
+
+      
