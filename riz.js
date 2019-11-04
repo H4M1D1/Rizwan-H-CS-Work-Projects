@@ -64,10 +64,4 @@ function integer(){
       console.log(x);
     }
   }
-<<<<<<< HEAD
 }
-=======
-}
-
-      
->>>>>>> 87928c77167053461d10f212f36778ea76fe0ece
