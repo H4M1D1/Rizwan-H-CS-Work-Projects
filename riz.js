@@ -51,17 +51,17 @@ var y = prompt("Enter the second angle... ");
 }
 
 function integer(){
-  var x = 0 
+  var x = 0;
   while (x <= 99){
     x = x + 1;
-      if(x % 4 == 0 && x % 10 == 0){
-          console.log("fourten");
-        }else if( x % 10 == 0){
-          console.log("ten");
-        }else if(x % 4 == 0){
-         console.log("four");
-        }else{
-          console.log(x);
-      }
+    if(x % 4 == 0 && x % 10 == 0){
+      console.log("FourTen");
+    }else if(x % 10 == 0){
+      console.log("Ten");
+    }else if(x % 4 == 0){
+      console.log("Four");
+    }else{
+      console.log(x);
     }
   }
+}
