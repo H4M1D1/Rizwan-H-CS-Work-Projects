@@ -63,5 +63,6 @@ function integer(){
     }else{
       console.log(x);
     }
+    alert("Check the console for the numbers!")
   }
 }
