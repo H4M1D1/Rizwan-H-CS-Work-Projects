@@ -65,3 +65,17 @@ function integer(){
     }
   }alert("Check the console for the numbers!");
 }
+
+function sentlength(){
+  var a = prompt("Enter a set of words, my website let you know how many letters there are in that phrase!")
+  var b = a.length 
+  alert (b)
+}
+
+function login(){
+  var a = "Enter the Username."
+  var b = "User located, enter the password."
+  var c = a.toLowerCase()
+
+  if(c == "rizwan", "sarah" && b == "isthebest")
+}
