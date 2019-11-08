@@ -67,6 +67,6 @@ function integer(){
 }
 
 function sentlength(){
-  var a = prompt("Enter a set of words, my website let you know how many letters there are in that phrase!")
+  var a = prompt("Enter a set of words, my website will let you know how many characters there are in that phrase!")
   alert(a.length);
 }
