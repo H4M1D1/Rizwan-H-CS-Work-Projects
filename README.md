@@ -1,4 +1,4 @@
-# RizwanH
+# My Computer Science work and projects.
 Rizwan Hamidi (TL Kennedy Student). Work for previous ICS3UO, and current ICS4U0 Computer Science/Coding Classes.
 
 Link to my website:
